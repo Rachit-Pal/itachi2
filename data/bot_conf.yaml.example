@@ -1,4 +1,4 @@
-# Hitsuki example config
+# Texas example config
 
 # Basic
 TOKEN: "YOUR_TOKEN"
@@ -7,9 +7,10 @@ TOKEN: "YOUR_TOKEN"
 APP_ID: 1234
 APP_HASH: "YOUR_APP_HASH"
 
-MONGO_URI: localhost
-MONGO_PORT: 27017
-MONGO_DB: 'hitsuki'
+MONGODB_URI': 'localhost'
+MONGO_DB': 'texas'
+
+API_PORT': 8080
 
 REDIS_URI: localhost
 REDIS_PORT: 6379
