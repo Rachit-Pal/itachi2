@@ -25,7 +25,6 @@ python-rapidjson
 PyYAML>5.0
 coloredlogs
 loguru
-sentry_sdk
 babel
 captcha
 async-timeout

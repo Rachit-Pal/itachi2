@@ -63,8 +63,6 @@ loop = asyncio.get_event_loop()
 import_module('texas.modules.pm_menu')
 # Import misc stuff
 import_module("texas.utils.exit_gracefully")
-if not get_bool_key('DEBUG_MODE'):
-    import_module("texas.utils.sentry")
 
 
 async def before_srv_task(loop):

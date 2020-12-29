@@ -18,7 +18,6 @@ from importlib import import_module
 
 from aiogram import types
 from aiogram.dispatcher.handler import SkipHandler
-from sentry_sdk import configure_scope
 
 from texas import BOT_USERNAME, dp
 from texas.config import get_bool_key
@@ -105,10 +104,6 @@ def register(*args, cmds=None, f=None, allow_edited=True, allow_kwargs=False, **
 
             if allow_kwargs is False:
                 def_kwargs = dict()
-
-            with configure_scope() as scope:
-                parsed_update = parse_update(dict(message))
-                scope.set_extra("update", str(parsed_update))
 
             if DEBUG_MODE:
                 # log.debug('[*] Starting {}.'.format(func.__name__))
