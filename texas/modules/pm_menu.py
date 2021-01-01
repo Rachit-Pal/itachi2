@@ -22,7 +22,7 @@ from aiogram.types.inline_keyboard import (
     InlineKeyboardButton
 )
 from aiogram.utils.exceptions import MessageNotModified
-
+from texas import BOT_USERNAME
 from texas.decorator import register
 from texas.modules.utils.disable import disableable_dec
 from . import MOD_HELP
@@ -103,7 +103,7 @@ async def help_cmd(message, strings):
 async def help_cmd(message, strings):
     text = (strings['btn_group_help'])
     button = InlineKeyboardMarkup().add(InlineKeyboardButton(
-        text=text, url="https://t.me/Texas_BOT?start"))
+        text=text, url=f"https://t.me/{BOT_USERNAME}?start"))
     await message.reply(strings['help_header'], reply_markup=button)
 
 
