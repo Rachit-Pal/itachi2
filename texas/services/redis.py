@@ -21,17 +21,17 @@ from texas import log
 from texas.config import get_str_key, get_int_key
 
 # Init Redis
-redis = redis_lib.StrictRedis(
+redis = redis_lib.Redis(
     host=get_str_key("REDIS_URI"),
     port=get_str_key("REDIS_PORT"),
-    db=get_int_key("REDIS_DB_FSM"),
+    password=get_str_key("REDIS_PASS"),
     decode_responses=True
 )
 
-bredis = redis_lib.StrictRedis(
+bredis = redis_lib.Redis(
     host=get_str_key("REDIS_URI"),
     port=get_str_key("REDIS_PORT"),
-    db=get_int_key("REDIS_DB_FSM")
+    password=get_str_key("REDIS_PASS"),
 )
 
 try:

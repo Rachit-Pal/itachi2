@@ -57,7 +57,7 @@ bot = Bot(token=TOKEN, parse_mode=types.ParseMode.HTML, server=server)
 storage = RedisStorage2(
     host=get_str_key("REDIS_URI"),
     port=get_int_key("REDIS_PORT"),
-    db=get_int_key("REDIS_DB_FSM")
+    password=get_str_key("REDIS_PASS")
 )
 dp = Dispatcher(bot, storage=storage)
 
