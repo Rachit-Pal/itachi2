@@ -33,11 +33,13 @@ if get_bool_key("HEROKU"):
         )
     }
 else:
+    jobstores = {
     DEFAULT: RedisJobStore(
         host=get_str_key("REDIS_URI"),
         port=get_str_key("REDIS_PORT"),
         db=get_int_key("REDIS_DB_FSM")
     )
+    }
 
 executors = {DEFAULT: AsyncIOExecutor()}
 job_defaults = {"coalesce": False, "max_instances": 3}
