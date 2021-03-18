@@ -18,21 +18,37 @@ import sys
 import redis as redis_lib
 
 from texas import log
-from texas.config import get_str_key, get_int_key
+from texas.config import get_str_key, get_int_key, get_bool_key
 
 # Init Redis
-redis = redis_lib.Redis(
-    host=get_str_key("REDIS_URI"),
-    port=get_str_key("REDIS_PORT"),
-    password=get_str_key("REDIS_PASS"),
-    decode_responses=True
-)
+if get_bool_key("HEROKU"):
+    redis = redis_lib.Redis(
+        host=get_str_key("REDIS_URI"),
+        port=get_str_key("REDIS_PORT"),
+        password=get_str_key("REDIS_PASS"),
+        decode_responses=True
+    )
 
-bredis = redis_lib.Redis(
+    bredis = redis_lib.Redis(
+        host=get_str_key("REDIS_URI"),
+        port=get_str_key("REDIS_PORT"),
+        password=get_str_key("REDIS_PASS"),
+    )
+
+else:
+    redis = redis_lib.StrictRedis(
     host=get_str_key("REDIS_URI"),
     port=get_str_key("REDIS_PORT"),
-    password=get_str_key("REDIS_PASS"),
-)
+    db=get_int_key("REDIS_DB_FSM"),
+    decode_responses=True)
+
+    bredis = redis_lib.StrictRedis(
+    host=get_str_key("REDIS_URI"),
+    port=get_str_key("REDIS_PORT"),
+    db=get_int_key("REDIS_DB_FSM"))
+
+
+
 
 try:
     redis.ping()

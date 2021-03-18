@@ -27,6 +27,7 @@ DEFAULTS = {
 
     'REDIS_HOST': 'localhost',
     'REDIS_PORT': 6379,
+    'REDIS_DB_FSM': 1,
     'REDIS_PASS': "AAAAAA",
 
     'MONGODB_URI': 'localhost',
@@ -34,6 +35,7 @@ DEFAULTS = {
 
     'API_PORT': 8080,
 
+    'HEROKU': False,
 
     'JOIN_CONFIRM_DURATION': '30m',
 }
