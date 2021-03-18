@@ -14,7 +14,6 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from apscheduler.executors.asyncio import AsyncIOExecutor
-from apscheduler.jobstores.redis import RedisJobStore
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from pytz import utc
 
@@ -22,30 +21,10 @@ from texas.config import get_str_key, get_int_key, get_bool_key
 from texas.utils.logger import log
 
 DEFAULT = "default"
-
-
-if get_bool_key("HEROKU"):
-    jobstores = {
-        DEFAULT: RedisJobStore(
-            host=get_str_key("REDIS_URI"),
-            port=get_str_key("REDIS_PORT"),
-            password=get_str_key("REDIS_PASS")
-        )
-    }
-else:
-    jobstores = {
-    DEFAULT: RedisJobStore(
-        host=get_str_key("REDIS_URI"),
-        port=get_str_key("REDIS_PORT"),
-        db=get_int_key("REDIS_DB_FSM")
-    )
-    }
-
 executors = {DEFAULT: AsyncIOExecutor()}
 job_defaults = {"coalesce": False, "max_instances": 3}
 
-scheduler = AsyncIOScheduler(
-    jobstores=jobstores, executors=executors, job_defaults=job_defaults, timezone=utc
+scheduler = AsyncIOScheduler(executors=executors, job_defaults=job_defaults, timezone=utc
 )
 
 log.info("Starting apscheduller...")
