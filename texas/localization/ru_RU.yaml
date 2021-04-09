@@ -164,12 +164,13 @@ STRINGS:
     cant_promote_yourself: "Вы не можете повысить себя."
     emoji_not_allowed: "Извините, но роли администратора не могут иметь эмодзи 😞"
   pm_menu:
-    start_hi_group: 'Привет! Меня зовут Texas'
-    start_hi: "Привет! Меня зовут Sophie. Я помогу вам эффективно управлять вашей группой!"
-    btn_source: "📦 Source code"
+    start_hi_group: 'Привет! Меня зовут Nao Tomori'
+    start_hi: "Привет! Меня зовут Nao Tomori. Я помогу вам эффективно управлять вашей группой!"
     btn_help: "❔ Помощь"
+    btn_add: "➕ Add Nao to your group"
     btn_lang: "🇷🇺 Язык"
-    btn_channel: "📬 Новости Texas"
+    btn_chat: "👥 Support Chat"
+    btn_channel: "📡 Updates Channel"
     btn_group_help: "Click me for help!"
     back: Назад
     #/help

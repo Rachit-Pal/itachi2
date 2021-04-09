@@ -163,12 +163,13 @@ STRINGS:
     cant_promote_yourself: "Você não pode promover a si mesmo."
     emoji_not_allowed: "Sinto muito, mas o título de administrador não podem ter emojis 😞"
   pm_menu:
-    start_hi_group: 'Olá! Meu nome é Texas'
-    start_hi: "Olá! Meu nome é <b>Texas.</b>\nEu posso ajudar a gerenciar seus grupos com recursos úteis, fique à vontade para me adicionar aos seus grupos!"
-    btn_source: "📦 Código fonte"
+    start_hi_group: 'Olá! Meu nome é Nao Tomori'
+    start_hi: "Olá! Meu nome é <b>Nao Tomori.</b>\nEu posso ajudar a gerenciar seus grupos com recursos úteis, fique à vontade para me adicionar aos seus grupos!"
     btn_help: "❔ Ajuda"
+    btn_add: "➕ Add Nao to your group"
     btn_lang: "🇧🇷 Idioma"
-    btn_channel: "📬 Notícias do Texas"
+    btn_chat: "👥 Support Chat"
+    btn_channel: "📡 Updates Channel"
     btn_group_help: "Clique aqui para obter ajuda!"
     back: Voltar
     #/help

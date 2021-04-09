@@ -166,10 +166,11 @@ STRINGS:
   pm_menu:
     start_hi_group: 'مرحبًا هناك! إسمي صوفي'
     start_hi: "مرحبًا هناك! اسمي صوفي، سوف أساعدك في إدارة مجموعتك بطريقة فعالة!"
-    btn_source: "📦 Source code"
     btn_help: "مساعدة ❔"
+    btn_add: "➕ Add Nao to your group"
     btn_lang: "اللغة 🇷🇺"
-    btn_channel: "Chat"
+    btn_chat: "👥 Support Chat"
+    btn_channel: "📡 Updates Channel"
     btn_group_help: "Click me for help!"
     back: الرجوع
     #/help

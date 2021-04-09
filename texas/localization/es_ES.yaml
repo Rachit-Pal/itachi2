@@ -164,12 +164,13 @@ STRINGS:
     cant_promote_yourself: "No puedes promoverte a ti mismo."
     emoji_not_allowed: "Lo siento, pero los roles de administrador no pueden contener emojis 😞"
   pm_menu:
-    start_hi_group: '¡Hola! Mi nombre es Sophie'
-    start_hi: "¡Hola! ¡Mi nombre es <b>Texas</b>, te ayudo a gestionar tu grupo de una manera eficiente!"
-    btn_source: "📦 Código fuente"
+    start_hi_group: '¡Hola! Mi nombre es Nao Tomori'
+    start_hi: "¡Hola! ¡Mi nombre es <b>Nao Tomora</b>, te ayudo a gestionar tu grupo de una manera eficiente!"
     btn_help: "❔ Ayuda"
+    btn_add: "➕ Add Nao to your group"
     btn_lang: "es Idioma"
-    btn_channel: "📡 Noticias de Texas"
+    btn_chat: "👥 Support Chat"
+    btn_channel: "📡 Updates Channel"
     btn_group_help: "Click me for help!"
     back: Atrás
     #/help

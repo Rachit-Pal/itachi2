@@ -61,10 +61,10 @@ delfed_cb = CallbackData('delfed_cb', 'fed_id', 'creator_id')
 # functions
 
 
-async def get_fed_f(message):
+async def get_fed_f(message, disable_self_fed_check: bool = False):
     chat = await get_connected_chat(message, admin=True)
     if 'err_msg' not in chat:
-        if chat['status'] == 'private':
+        if chat['status'] == 'private' and not disable_self_fed_check:
             # return fed which user is created
             fed = await get_fed_by_creator(chat['chat_id'])
         else:
@@ -97,7 +97,7 @@ def get_current_chat_fed(func):
     return wrapped_1
 
 
-def get_fed_user_text(skip_no_fed=False, self=False):
+def get_fed_user_text(skip_no_fed=False, check_self_user=False, disable_self_fed_check: bool = False):
     def wrapped(func):
         async def wrapped_1(*args, **kwargs):
             fed = None
@@ -112,7 +112,7 @@ def get_fed_user_text(skip_no_fed=False, self=False):
                 user = {'user_id': int(data[0])}
                 text = ' '.join(data[1:]) if len(data) > 1 else None
             elif not user:
-                if self is True:
+                if check_self_user is True:
                     user = await db.user_list.find_one({'user_id': message.from_user.id})
                 else:
                     await message.reply(strings['cant_get_user'])
@@ -132,7 +132,7 @@ def get_fed_user_text(skip_no_fed=False, self=False):
                         text = " ".join(text_args)
 
             if not fed:
-                if not (fed := await get_fed_f(message)):
+                if not (fed := await get_fed_f(message, disable_self_fed_check)):
                     if not skip_no_fed:
                         await message.reply(strings['chat_not_in_fed'])
                         return
@@ -1046,7 +1046,7 @@ async def importfbans_func(message, fed, strings, document=None):
         else:
             new['time'] = current_time
 
-        if 'banned_chats' in row and type(row['banned_chats']) == list:
+        if 'banned_chats' in row and type(row['banned_chats']) is list:
             new['banned_chats'] = row['banned_chats']
 
         queue_del.append(DeleteMany(
@@ -1135,7 +1135,7 @@ async def check_fbanned(message: Message, chat, strings):
 
 
 @decorator.register(cmds=['fcheck', 'fbanstat'])
-@get_fed_user_text(skip_no_fed=True, self=True)
+@get_fed_user_text(skip_no_fed=True, check_self_user=True, disable_self_fed_check=True)
 @get_strings_dec('feds')
 async def fedban_check(message, fed, user, _, strings):
     fbanned_fed = False  # A variable to find if user is banned in current fed of chat
@@ -1238,7 +1238,6 @@ async def __import__(chat_id, data):
         await db.feds.update_one({'fed_id': fed_id}, {'$addToSet': {'chats': chat_id}})
         await get_fed_by_id.reset_cache(fed_id)
 
-
 __mod_name__ = "Federations"
 
 __help__ = """
@@ -1247,12 +1246,12 @@ Well basically there is 2 reasons to use Federations:
 1. You have many chats and want to ban users in all of them with 1 command
 2. You want to subscribe to any of the antispam Federations to have your chat(s) protected.
 
-In both cases Texas will help you.
+In both cases Nao will help you.
 
 <b>Arguments types help:</b>
 <code>()</code>: required argument
 <code>(user)</code>: required but you can reply on any user's message instead
-<code>(file)</code>: required file, if file isn't provided you will be entered in file state, this means Texas will wait file message from you. Type /cancel to leave from it.
+<code>(file)</code>: required file, if file isn't provided you will be entered in file state, this means Nao will wait file message from you. Type /cancel to leave from it.
 <code>(? )</code>: additional argument
 
 <b>Only Federation owner:</b>

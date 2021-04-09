@@ -59,8 +59,8 @@ async def select_lang_keyboard(message, strings, edit=False):
             callback_data=select_lang_cb.new(lang=lang_info['code'], back_btn=False if edit is False else True))
         )
 
-    # markup.add(InlineKeyboardButton(
-        # strings['crowdin_btn'], url='https://crowdin.com/project/texas'))
+    markup.add(InlineKeyboardButton(
+        strings['crowdin_btn'], url='https://crowdin.com/project/nao-tomori/'))
     if edit:
         markup.add(InlineKeyboardButton(
             strings['back'], callback_data='go_to_start'))
@@ -136,12 +136,12 @@ async def __import__(chat_id, data):
 __mod_name__ = "Languages"
 
 __help__ = """
-This module is dedicated towards utlising Texas's localization feature! You can also <a href='https://crowdin.com/project/texas'>contribute</a> for improving localization in Texas!
+This module is dedicated towards utlising Nao's localization feature! You can also <a href='https://crowdin.com/project/texas'>contribute</a> for improving localization in Texas!
 
 <b>Available commands:</b>
 - /lang: Shows a list of avaible languages
 - /lang (language codename): Sets a language
 
 <b>Example:</b> <code>/lang</code>
-Texas will send you bunch of inline buttons where you can select your prefered language interatively without any hassles!
+Nao will send you bunch of inline buttons where you can select your prefered language interatively without any hassles!
 """
