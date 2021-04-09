@@ -14,6 +14,6 @@ To anyone coming here to **clone this bot**, no support will be given for it. If
 * Fully asynchronous
 * Fully open-source
 * Frequently updated
-* Itachi respects your data privacy, we constantly improving privacy and security in Nao
+* Itachi respects your data privacy, we constantly improving privacy and security in Itachi
 
 Bot Demo: [Itachi](https://t.me/ItachiRobot) | Updates Channel: [Updates Channel](https://t.me/itachiupdates)
