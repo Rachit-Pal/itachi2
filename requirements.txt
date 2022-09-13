@@ -4,10 +4,10 @@ aiogram
 
 # DBs
 redis
-aioredis # Redis memery storage fom aiogram
+aioredis #Redis memery storage fom aiogram
 pymongo
 motor
-dnspython # needed to connect to cloud MongoDB instances
+dnspython #Needed to connect to cloud MongoDB instances
 
 # Optional deps to make bot faster
 aiohttp[speedups]
